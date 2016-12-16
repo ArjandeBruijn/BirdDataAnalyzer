@@ -1,0 +1,667 @@
+	Estimation Options Listing	
+
+ Parameter Estimation Specification
+ ----------------------------------
+ Encounter rate by stratum           
+ Detection probability for all data combined
+ Expected cluster size for all data combined
+ Density by stratum           
+ Pooled estimate of density is made from stratum estimates treated as replicates
+
+ Distances:
+ ----------
+ Analysis based on distance intervals
+ Width specified as:    24.00000    
+ Left most value set at:       0.0000000
+
+ Clusters:
+ ---------
+ Analysis based on exact sizes
+ Expected value of cluster size computed by: regression of log(s(i)) on g(x(i))
+    unless regression is non-significant,  with significance level =  0.150
+
+ Estimators:
+ -----------
+ Estimator  1
+ Key: Hazard Rate
+ Adjustments - Function                 : Cosines
+             - Term selection mode      : Sequential
+             - Term selection criterion : Akaike Information Criterion (AIC)
+             - Distances scaled by      : W (right truncation distance)
+
+ Estimator selection: Choose estimator with minimum  AIC
+ Estimation functions: constrained to be nearly monotone non-increasing
+
+ Variances:
+ ----------
+ Variance of n: Empirical estimate from sample
+                (design-derived estimator R2/P2)
+ Variance of f(0): MLE estimate
+
+ Goodness of fit:
+ ----------------
+ Based on grouped distance data intervals
+
+
+
+ Glossary of terms
+ -----------------
+
+ Data items:
+ n    - number of observed objects (single or clusters of animals)
+ L    - total length of transect line(s) 
+ k    - number of samples
+ K    - point transect effort, typically K=k
+ T    - length of time searched in cue counting
+ ER   - encounter rate (n/L or n/K or n/T)
+ W    - width of line transect or radius of point transect
+ x(i) - distance to i-th observation
+ s(i) - cluster size of i-th observation
+ r-p  - probability for regression test
+ chi-p- probability for chi-square goodness-of-fit test
+
+
+ Parameters or functions of parameters:
+ m    - number of parameters in the model
+ A(I) - i-th parameter in the estimated probability density function(pdf)
+ f(0) - 1/u = value of pdf at zero for line transects
+ u    - W*p = ESW, effective detection area for line transects
+ h(0) - 2*PI/v
+ v    - PI*W*W*p, is the effective detection area for point transects
+ p    - probability of observing an object in defined area
+ ESW  - for line transects, effective strip width = W*p
+ EDR  - for point transects, effective detection radius  = W*sqrt(p)
+ rho  - for cue counts, the cue rate
+ DS   - estimate of density of clusters
+ E(S) - estimate of expected value of cluster size
+ D    - estimate of density of animals
+ N    - estimate of number of animals in specified area
+	Detection Fct/Global/Model Fitting	
+
+
+ Effort        :    162000.0    
+ # samples     :   324
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:   265
+
+** Warning: The number of adjustment parameters allowed has 
+  been reduced to   2 because of limited number of intervals. **
+
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+       Results:
+       Convergence was achieved with   12 function evaluations.
+       Final Ln(likelihood) value =  -350.65341    
+       Akaike information criterion =   705.30682    
+       Bayesian information criterion =   712.46631    
+       AICc =   705.35260    
+       Final parameter values:   6.6423243      1.9059790    
+
+
+ Model  2
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+    Cosine adjustments of order(s) :  2
+       Results:
+       Convergence was achieved with    2 function evaluations.
+       Final Ln(likelihood) value =  -350.65341    
+       Akaike information criterion =   707.30682    
+       Bayesian information criterion =   718.04602    
+       AICc =   707.39880    
+       Final parameter values:   6.6423243      1.9059790         0.00000000
+      ** Warning: Parameters are being constrained to obtain monotonicity. **
+
+    Likelihood ratio test between models  1 and  2
+       Likelihood ratio test value    =     0.0000
+       Probability of a greater value =   1.000000
+ *** Model  1 selected over model  2 based on minimum AIC              
+	Detection Fct/Global/Parameter Estimates	
+
+
+ Effort        :    162000.0    
+ # samples     :   324
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:   265
+
+ Model
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90 Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    A( 1)      6.642        1.036    
+    A( 2)      1.906       0.3054    
+    f(0)     0.98831E-01  0.87766E-02       8.88      0.85380E-01  0.11440    
+    p        0.42159      0.37439E-01       8.88      0.36422      0.48801    
+    ESW       10.118      0.89854           8.88       8.7412       11.712    
+  ---------  -----------  -----------  --------------  ----------------------
+
+
+ Sampling Correlation of Estimated Parameters
+
+
+         A( 1)   A( 2)
+ A( 1)  1.000   0.800
+ A( 2)  0.800   1.000
+	Detection Fct/Global/Plot: Detection Probability	
+            |+------------+------------+------------+------------+------------+|
+     1.1000 +                                                                  +
+            |                                                                  |
+            |                                                                  |
+            |                                                                  |
+            | ffffffff                                                         |
+     0.9659 +*********ff***                                                    +
+            |*            *                                                    |
+            |*          f *                                                    |
+            |*           f*                                                    |
+            |*            *                                                    |
+ D   0.8317 +*            f                                                    +
+ e          |*            *f                                                   |
+ t          |*            *                                                    |
+ e          |*            * f                                                  |
+ c          |*            *  f                                                 |
+ t   0.6976 +*            *                                                    +
+ i          |*            *   f                                                |
+ o          |*            *    f                                               |
+ n          |*            *                                                    |
+            |*            *     f                                              |
+ P   0.5634 +*            *******f******                                       +
+ r          |*            *       f    *                                       |
+ o          |*            *            *                                       |
+ b          |*            *        f   *                                       |
+ a          |*            *         f  *                                       |
+ b   0.4293 +*            *          f *                                       +
+ i          |*            *           ff                                       |
+ l          |*            *            *f                                      |
+ i          |*            *            * f                                     |
+ t          |*            *            *  ff                                   |
+ y   0.2951 +*            *            *****ff*******                          +
+            |*            *            *      ff    *                          |
+            |*            *            *        ff  *                          |
+            |*            *            *          fff                          |
+            |*            *            *            *fff**********             |
+     0.1610 +*            *            *            *   fffff    *             +
+            |*            *            *            *        fffff             |
+            |*            *            *            *            *ffffffff     |
+            |*            *            *            *            *********fffff|
+            |*            *            *            *            *            *|
+     0.0268 +*            *            *            *            *            *+
+            |                                                                  |
+            |+------------+------------+------------+------------+------------+|
+          0.000        4.800        9.600       14.400       19.200       24.000
+                                                                                
+
+                             Perpendicular distance in meters      
+	Detection Fct/Global/Chi-sq GOF Test	
+
+  Cell           Cut           Observed     Expected   Chi-square
+   i            Points          Values       Values       Values
+ -----------------------------------------------------------------
+   1     0.000        4.80          123      122.34        0.004
+   2      4.80        9.60           72       74.26        0.069
+   3      9.60        14.4           37       35.65        0.051
+   4      14.4        19.2           23       20.02        0.444
+   5      19.2        24.0           10       12.73        0.586
+ -----------------------------------------------------------------
+ Total Chi-square value =     1.1530  Degrees of Freedom =  2.00
+
+Probability of a greater chi-square value, P = 0.56187
+
+ The program has limited capability for pooling.  The user should
+ judge the necessity for pooling and if necessary, do pooling by hand.
+	Cluster size/Global/Estimates	
+
+
+ Effort        :    162000.0    
+ # samples     :   324
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:   265
+
+
+
+ Expected cluster size estimated based on regression of: log(s(i)) on g(x(i))
+** Warning: Exact distance values, rather than distance intervals,
+have been used in size bias regression calculations. **
+
+
+ Regression Estimates
+ --------------------
+ Slope      =   -0.429260       Std error   =    0.115378    
+ Intercept  =    0.632844       Std error   =    0.885953E-01
+ Correlation=   -0.2236         Students-t  =    -3.72048    
+ Df         =    263            Pr(T < t)   =    0.121559E-03
+
+
+ Expected cluster size =   1.4878     Standard error    =  0.62156E-01
+
+ Mean cluster size     =   1.9396     Standard error    =  0.19547    
+	Cluster size/Global/Regression plot	
+            |+----+----+----+----+----+----+----+----+----+----+----+----+----+|
+     3.8364 +                                                                  +
+            |                                                    o             |
+            |                                                                  |
+            |                                                                  |
+            |                                                                  |
+     3.3686 +                                                                  +
+            |                                                                  |
+            |                                                                  |
+            |                                                                  |
+            |                                                                  |
+ L   2.9007 +                                                                  +
+ o          |                    o                                             |
+ g          |                                                                  |
+            |                                                                  |
+ o          |                                                                  |
+ f   2.4329 +         o        o o                                             +
+            |                                                                  |
+ c          |                                                                  |
+ l          |                  o                                               |
+ u          |                  o o                                           o |
+ s   1.9650 +                                                    o             +
+ t          |                                                                  |
+ e          |         o     o                                                o |
+ r          |                                                                  |
+            |           o  o                 o                          o      |
+ s   1.4971 +                                                                  +
+ i          |       o o  o  o                o            o             o   oo |
+ z          |                                                                  |
+ e          |                                                                  |
+            |     oooo         o o           o     o      o      o      o   oo |
+     1.0293 +                                                                  +
+            |                                                                  |
+            |                                                                  |
+            |                                                                  |
+            |** *   ooo oo oo    o           o     o                    o   oo |
+     0.5614 +    ** **** *** **                                                +
+            |                  * **** *** ***                                  |
+            |                                 **** *** ***                     |
+            |                                              **** *** *** *      |
+            |                                                            *** * |
+     0.0936 +                                                                  +
+            |     ooooooo  oo  o o  o   o    o     o      o      o      o   oo |
+            |+----+----+----+----+----+----+----+----+----+----+----+----+----+|
+           0.000     0.157     0.314     0.471     0.628     0.785     0.942    
+               0.078     0.235     0.392     0.549     0.706     0.863     1.020
+
+                                 Detection Probability (g(x))      
+	Density Estimates/EHpO-2015Rotational	
+
+ Stratum       : EHpO-2015Rotational                               
+ Effort        :    19000.00    
+ # samples     :    38
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:    61
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        158.65       21.679          13.66       126.59       198.83    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         236.04       33.728          14.29       186.49       298.76    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :  38.6
+ Encounter rate          :  52.8
+ Cluster size            :   8.5
+	Density Estimates/EHpO-2016Rotational	
+
+ Stratum       : EHpO-2016Rotational                               
+ Effort        :    25000.00    
+ # samples     :    50
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:    37
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        73.135       16.489          22.55       50.451       106.02    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         108.81       24.951          22.93       74.625       158.66    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :  15.0
+ Encounter rate          :  81.7
+ Cluster size            :   3.3
+	Density Estimates/Mim-2014Continuous	
+
+ Stratum       : Mim-2014Continuous                                
+ Effort        :    7500.000    
+ # samples     :    15
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:     5
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        32.944       21.040          63.87       11.792       92.037    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         49.014       31.370          64.00       17.522       137.11    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :   1.9
+ Encounter rate          :  97.6
+ Cluster size            :   0.4
+	Density Estimates/Mim-2014Rotational	
+
+ Stratum       : Mim-2014Rotational                                
+ Effort        :    41500.00    
+ # samples     :    83
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:    40
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        47.630       11.057          23.21       32.572       69.648    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         70.864       16.715          23.59       48.183       104.22    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :  14.2
+ Encounter rate          :  82.7
+ Cluster size            :   3.1
+	Density Estimates/Mim-2015Continuous	
+
+ Stratum       : Mim-2015Continuous                                
+ Effort        :    6500.000    
+ # samples     :    13
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:     8
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        60.819       18.629          30.63       35.918       102.98    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         90.488       27.974          30.91       53.261       153.73    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :   8.3
+ Encounter rate          :  89.9
+ Cluster size            :   1.8
+	Density Estimates/Mim-2015Rotational	
+
+ Stratum       : Mim-2015Rotational                                
+ Effort        :    23000.00    
+ # samples     :    46
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:    40
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        85.940       14.337          16.68       65.244       113.20    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         127.86       21.989          17.20       96.295       169.78    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :  26.7
+ Encounter rate          :  67.4
+ Cluster size            :   5.9
+	Density Estimates/Mim-2016Continuous	
+
+ Stratum       : Mim-2016Continuous                                
+ Effort        :    8000.000    
+ # samples     :    16
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:     6
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        37.062       18.062          48.74       16.556       82.963    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         55.141       26.972          48.91       24.585       123.67    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :   3.3
+ Encounter rate          :  96.0
+ Cluster size            :   0.7
+	Density Estimates/Mim-2016Rotational	
+
+ Stratum       : Mim-2016Rotational                                
+ Effort        :    31500.00    
+ # samples     :    63
+ Width         :    24.00000    
+ Left          :       0.0000000
+ # observations:    68
+
+ Model  1
+    Hazard Rate key, k(y) = 1 - Exp(-(y/A(1))**-A(2))
+
+
+              Point        Standard    Percent Coef.        90% Percent
+  Parameter   Estimate       Error      of Variation     Confidence Interval
+  ---------  -----------  -----------  --------------  ----------------------
+    DS        106.68       20.033          18.78       78.314       145.31    
+    E(S)      1.4878      0.62156E-01       4.18       1.3887       1.5940    
+    D         158.71       30.534          19.24       115.69       217.74    
+  ---------  -----------  -----------  --------------  ----------------------
+
+ Measurement Units                
+ ---------------------------------
+ Density: Numbers/Sq. kilometers 
+     ESW: meters         
+
+ Component Percentages of Var(D)
+ -------------------------------
+ Detection probability   :  21.3
+ Encounter rate          :  74.0
+ Cluster size            :   4.7
+	Estimation Summary - Encounter rates         	
+
+                         Estimate      %CV     df     90% Confidence Interval
+                        ------------------------------------------------------
+ Stratum: EHpO-2015Rotational                               
+                 n       61.000    
+                 k       38.000    
+                 L       19000.    
+                 n/L    0.32105E-02   10.39    37.00 0.26958E-02  0.38236E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: EHpO-2016Rotational                               
+                 n       37.000    
+                 k       50.000    
+                 L       25000.    
+                 n/L    0.14800E-02   20.72    49.00 0.10494E-02  0.20872E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2014Continuous                                
+                 n       5.0000    
+                 k       15.000    
+                 L       7500.0    
+                 n/L    0.66667E-03   63.25    14.00 0.24000E-03  0.18519E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2014Rotational                                
+                 n       40.000    
+                 k       83.000    
+                 L       41500.    
+                 n/L    0.96386E-03   21.45    82.00 0.67730E-03  0.13717E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2015Continuous                                
+                 n       8.0000    
+                 k       13.000    
+                 L       6500.0    
+                 n/L    0.12308E-02   29.32    12.00 0.73778E-03  0.20532E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2015Rotational                                
+                 n       40.000    
+                 k       46.000    
+                 L       23000.    
+                 n/L    0.17391E-02   14.12    45.00 0.13735E-02  0.22021E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2016Continuous                                
+                 n       6.0000    
+                 k       16.000    
+                 L       8000.0    
+                 n/L    0.75000E-03   47.92    15.00 0.33800E-03  0.16642E-02
+                 Left    0.0000
+                 Width   24.000    
+ Stratum: Mim-2016Rotational                                
+                 n       68.000    
+                 k       63.000    
+                 L       31500.    
+                 n/L    0.21587E-02   16.55    62.00 0.16406E-02  0.28405E-02
+                 Left    0.0000
+                 Width   24.000    
+	Estimation Summary - Detection probability   	
+
+ Pooled Estimates:
+                         Estimate      %CV     df     90% Confidence Interval
+                        ------------------------------------------------------
+ Hazard/Cosine          
+                 m       2.0000    
+                 LnL    -350.65    
+                 AIC     705.31    
+                 AICc    705.35    
+                 BIC     712.47    
+                 Chi-p  0.56187    
+                 f(0)   0.98831E-01    8.88   263.00 0.85380E-01  0.11440    
+                 p      0.42159        8.88   263.00 0.36422      0.48801    
+                 ESW     10.118        8.88   263.00  8.7412       11.712    
+	Estimation Summary - Expected cluster size   	
+
+ Pooled Estimates:
+                         Estimate      %CV     df     90% Confidence Interval
+                        ------------------------------------------------------
+ Average cluster size   
+                         1.9396       10.08   264.00  1.6431       2.2897    
+ Hazard/Cosine          
+                 r     -0.22361    
+                 r-p    0.12156E-03
+                 E(S)    1.4878        4.18   263.00  1.3887       1.5940    
+	Estimation Summary - Density&Abundance       	
+
+                         Estimate      %CV     df     90% Confidence Interval
+                        ------------------------------------------------------
+ Stratum: EHpO-2015Rotational                               
+ Hazard/Cosine          
+                 DS      158.65       13.66   103.13  126.59       198.83    
+                 D       236.04       14.29   122.89  186.49       298.76    
+ Stratum: EHpO-2016Rotational                               
+ Hazard/Cosine          
+                 DS      73.135       22.55    68.22  50.451       106.02    
+                 D       108.81       22.93    72.96  74.625       158.66    
+ Stratum: Mim-2014Continuous                                
+ Hazard/Cosine          
+                 DS      32.944       63.87    14.56  11.792       92.037    
+                 D       49.014       64.00    14.68  17.522       137.11    
+ Stratum: Mim-2014Rotational                                
+ Hazard/Cosine          
+                 DS      47.630       23.21   111.50  32.572       69.648    
+                 D       70.864       23.59   118.79  48.183       104.22    
+ Stratum: Mim-2015Continuous                                
+ Hazard/Cosine          
+                 DS      60.819       30.63    14.30  35.918       102.98    
+                 D       90.488       30.91    14.83  53.261       153.73    
+ Stratum: Mim-2015Rotational                                
+ Hazard/Cosine          
+                 DS      85.940       16.68    85.34  65.244       113.20    
+                 D       127.86       17.20    96.26  96.295       169.78    
+ Stratum: Mim-2016Continuous                                
+ Hazard/Cosine          
+                 DS      37.062       48.74    16.05  16.556       82.963    
+                 D       55.141       48.91    16.28  24.585       123.67    
+ Stratum: Mim-2016Rotational                                
+ Hazard/Cosine          
+                 DS      106.68       18.78   100.88  78.314       145.31    
+                 D       158.71       19.24   111.01  115.69       217.74    
+	Estimation Summary - Density&Abundance       	
+
+ Pooled Estimates:
+                         Estimate      %CV     df     90% Confidence Interval
+                        ------------------------------------------------------
+                 DS      80.834       19.35    11.21  57.320       114.00    
+                 D       120.27       19.80    12.28  84.852       170.46    

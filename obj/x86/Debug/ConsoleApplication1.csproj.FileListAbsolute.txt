@@ -1,0 +1,10 @@
+C:\Users\Arjan\Desktop\Data\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Arjan\Desktop\Data\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Arjan\Desktop\Data\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\Arjan\Desktop\Data\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\Arjan\Desktop\Data\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Arjan\Desktop\BirdDataAnalyzer\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\Arjan\Desktop\BirdDataAnalyzer\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\Arjan\Desktop\BirdDataAnalyzer\bin\Debug\ConsoleApplication1.exe
+C:\Users\Arjan\Desktop\BirdDataAnalyzer\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Arjan\Desktop\BirdDataAnalyzer\obj\x86\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
